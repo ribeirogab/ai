@@ -1,6 +1,7 @@
-import { defineConfig, type Options } from 'tsup';
+const { defineConfig } = require('tsup');
 
-export const config: Options | Options[] = {
+/** @type {import('tsup').Options | import('tsup').Options[]} */
+const config = {
   entry: ['src', '!src/**/*.spec.*', '!src/**/*.test.*'],
   splitting: false,
   sourcemap: true,
@@ -13,4 +14,7 @@ export const config: Options | Options[] = {
   ],
 };
 
-export { defineConfig };
+module.exports = {
+  defineConfig,
+  config,
+};

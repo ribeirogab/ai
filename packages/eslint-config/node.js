@@ -4,6 +4,12 @@ module.exports = {
   plugins: ['simple-import-sort'],
   overrides: [
     {
+      files: ['tsup.config.js', 'vitest.config.js', 'vitest.workspace.js'],
+      rules: {
+        '@typescript-eslint/no-require-imports': 'off',
+      },
+    },
+    {
       files: ['./src/configs/env.config.ts', './src/container.ts'],
       rules: {
         'prettier/prettier': [

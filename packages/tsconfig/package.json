@@ -2,7 +2,6 @@
   "name": "@repo/tsconfig",
   "version": "0.0.0",
   "private": true,
-  "license": "MIT",
   "eslintConfig": {
     "extends": [
       "@repo/eslint-config/library"
@@ -14,11 +13,13 @@
     "tsx": "^4.19.3"
   },
   "files": [
+    "tsup.config.js",
     "library.json",
-    "node.json",
-    "tsup.config.ts"
+    "node.json"
   ],
   "exports": {
-    "./tsup.config": "./tsup.config.ts"
+    "./tsup.config": "./tsup.config.js",
+    "./node.json": "./node.json",
+    "./library.json": "./library.json"
   }
 }

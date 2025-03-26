@@ -7,7 +7,14 @@ module.exports = {
   plugins: ['simple-import-sort'],
   overrides: [
     {
-      files: ['library.js', 'next.js', 'node.js'],
+      files: [
+        'library.js',
+        'next.js',
+        'node.js',
+        'tsup.config.js',
+        'vitest.config.js',
+        'vitest.workspace.js',
+      ],
       rules: {
         '@typescript-eslint/no-require-imports': 'off',
       },

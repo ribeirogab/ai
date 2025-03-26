@@ -1,3 +1,7 @@
 {
-  "extends": "@repo/tsconfig/library.json"
+  "extends": "@repo/tsconfig/library.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true
+  }
 }
