@@ -50,9 +50,7 @@ server.tool({
       content: [
         {
           type: 'text',
-          text: `Today is day ${date.getDate()}, ${date.getHours()}${
-            date.getHours() === 11 ? 'pm' : 'am'
-          }`,
+          text: `Today is day ${date.getDate()}, ${date.getHours()}:${date.getMinutes()}`,
         },
       ],
     };
