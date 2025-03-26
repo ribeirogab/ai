@@ -1,1 +1,1 @@
-export * from './schemas/transport-type';
+export * from './transport-type';
