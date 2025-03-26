@@ -3,6 +3,7 @@ const { defineConfig } = require('tsup');
 /** @type {import('tsup').Options | import('tsup').Options[]} */
 const config = {
   entry: ['src', '!src/**/*.spec.*', '!src/**/*.test.*'],
+  outDir: 'build',
   splitting: false,
   sourcemap: true,
   clean: true,
