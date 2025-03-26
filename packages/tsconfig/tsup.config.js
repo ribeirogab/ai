@@ -8,8 +8,9 @@ const config = {
   clean: true,
   noExternal: [
     '@repo/definitions',
-    '@repo/tsconfig',
     '@repo/eslint-config',
+    '@repo/lib',
+    '@repo/tsconfig',
     '@repo/vitest',
   ],
 };

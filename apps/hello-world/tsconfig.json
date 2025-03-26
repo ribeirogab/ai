@@ -1,7 +1,9 @@
 {
   "extends": "@repo/tsconfig/node.json",
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "../../packages/definitions/src/**/*",
+    "../../packages/lib/src/**/*"
   ],
   "compilerOptions": {
     "baseUrl": ".",

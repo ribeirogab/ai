@@ -20,9 +20,9 @@ export class McpServer {
     execute,
     name,
   }: {
-    name: string;
-    parameters: Args;
     execute: ToolCallback<Args>;
+    parameters: Args;
+    name: string;
   }) {
     this.server.tool(name, parameters, execute);
   }
@@ -57,12 +57,14 @@ export class McpServer {
     app.get('/sse', async (_: FastifyRequest, reply: FastifyReply) => {
       transport = new SSEServerTransport('/messages', reply.raw);
       await this.server.connect(transport);
+      console.log('MCP Server connected');
     });
 
     app.post(
       '/messages',
       async (request: FastifyRequest, reply: FastifyReply) => {
         if (transport) {
+          console.log('Handling SSE message...');
           await transport.handlePostMessage(request.raw, reply.raw);
         }
       },
