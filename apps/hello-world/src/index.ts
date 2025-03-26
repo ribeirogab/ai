@@ -2,7 +2,7 @@ import { McpServer } from '@repo/lib/mcp';
 import { z } from '@repo/lib/zod';
 
 const server = new McpServer({
-  name: 'hello-world-server',
+  name: 'hello-world',
   version: '1.0.0',
 });
 
