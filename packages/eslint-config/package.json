@@ -1,0 +1,22 @@
+{
+  "name": "@repo/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "library.js",
+    "node.js"
+  ],
+  "prettier": "./prettier.js",
+  "eslintConfig": {
+    "extends": [
+      "./library.js"
+    ]
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "prettier": "^3.3.3"
+  }
+}
