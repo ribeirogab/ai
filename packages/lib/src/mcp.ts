@@ -1,77 +1,90 @@
-import {
-  McpServer as McpServerInternal,
-  type ToolCallback,
-} from '@modelcontextprotocol/sdk/server/mcp.js';
-import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
+import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import {
+  CallToolRequestSchema,
+  ListToolsRequestSchema,
+} from '@modelcontextprotocol/sdk/types.js';
 import { TRANSPORT_TYPE_SCHEMA } from '@repo/definitions';
-import fastify, { type FastifyReply, type FastifyRequest } from 'fastify';
-import type { ZodRawShape } from 'zod';
+import { z, type ZodRawShape } from 'zod';
+import zodToJsonSchema from 'zod-to-json-schema';
+
+type Execute<Args extends ZodRawShape> = (
+  request: Args,
+) => Promise<{ content: { type: string; text: string }[] }>;
+
+type Tool<Args extends ZodRawShape = ZodRawShape> = {
+  description: string | undefined;
+  execute: Execute<Args>;
+  parameters: Args;
+  name: string;
+};
 
 export class McpServer {
-  private readonly server: McpServerInternal;
+  private readonly server: Server;
+  private readonly tools: Tool<ZodRawShape>[] = [];
 
   constructor({ name, version }: { name: string; version?: string }) {
-    this.server = new McpServerInternal({ name, version: version ?? '1.0.0' });
+    this.server = new Server(
+      { name, version: version ?? '1.0.0' },
+      {
+        capabilities: {
+          tools: {},
+        },
+      },
+    );
   }
 
   public tool<Args extends ZodRawShape>({
+    description,
     parameters,
     execute,
     name,
   }: {
-    execute: ToolCallback<Args>;
+    description?: string;
     parameters: Args;
+    execute: Execute<Args>;
     name: string;
   }) {
-    this.server.tool(name, parameters, execute);
+    this.tools.push({
+      execute: execute as Execute<ZodRawShape>,
+      description,
+      parameters,
+      name,
+    });
   }
 
   public async start(dto: { transportType: string }) {
+    this.server.setRequestHandler(ListToolsRequestSchema, async () => {
+      return {
+        tools: this.tools.map((tool) => ({
+          inputSchema: zodToJsonSchema(z.object(tool.parameters)),
+          description: tool.description,
+          name: tool.name,
+        })),
+      };
+    });
+
+    this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
+      for (const tool of this.tools) {
+        if (tool.name === request.params.name) {
+          return await tool.execute(request.params.arguments as ZodRawShape);
+        }
+      }
+
+      throw new Error('Tool not found');
+    });
+
     const transportType = TRANSPORT_TYPE_SCHEMA.parse(dto.transportType);
 
     if (transportType === 'stdio') {
       return this.startStdio();
     }
 
-    if (transportType === 'sse') {
-      return this.startSse();
-    }
-
     throw new Error(`Unknown transport type: ${transportType}`);
   }
 
   private async startStdio() {
-    console.log('Starting MCP Server with stdio transport...');
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
-    console.log('MCP Server running with stdio transport');
-  }
-
-  private async startSse() {
-    console.log('Starting MCP Server with SSE transport...');
-
-    const app = fastify();
-    let transport: SSEServerTransport | null = null;
-
-    app.get('/sse', async (_: FastifyRequest, reply: FastifyReply) => {
-      transport = new SSEServerTransport('/messages', reply.raw);
-      await this.server.connect(transport);
-      console.log('MCP Server connected');
-    });
-
-    app.post(
-      '/messages',
-      async (request: FastifyRequest, reply: FastifyReply) => {
-        if (transport) {
-          console.log('Handling SSE message...');
-          await transport.handlePostMessage(request.raw, reply.raw);
-        }
-      },
-    );
-
-    app.listen({ port: 8765, host: '0.0.0.0' }, () => {
-      console.log('MCP Server running with SSE on http://localhost:8765/sse');
-    });
   }
 }
