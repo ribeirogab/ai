@@ -1,0 +1,21 @@
+{
+  "name": "@repo/lib",
+  "version": "0.0.0",
+  "private": true,
+  "prettier": "@repo/eslint-config/prettier",
+  "eslintConfig": {
+    "extends": [
+      "@repo/eslint-config/library"
+    ]
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/tsconfig": "*"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0"
+  },
+  "exports": {
+    "./mcp-sdk": "./src/mcp-sdk.ts"
+  }
+}
