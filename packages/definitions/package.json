@@ -1,0 +1,19 @@
+{
+  "name": "@repo/definitions",
+  "version": "0.0.0",
+  "private": true,
+  "prettier": "@repo/eslint-config/prettier",
+  "eslintConfig": {
+    "extends": [
+      "@repo/eslint-config/library"
+    ]
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/tsconfig": "*"
+  },
+  "dependencies": {
+    "http-status-codes": "^2.3.0",
+    "zod": "^3.23.8"
+  }
+}
