@@ -38,18 +38,3 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
-
-# Terraform
-.infracost
-.terraform
-terraform.tfstate.backup
-.terraform.lock.hcl
-terraform.tfstate
-chromium-layer.zip
-nodejs-layer.zip
-dist.zip
-
-# Local State
-**/nodejs/*
-!**/nodejs/.gitkeep
-apps/api/infra/**/backend.tf
