@@ -4,22 +4,20 @@
   "private": true,
   "eslintConfig": {
     "extends": [
-      "@repo/eslint-config/library"
+      "@repo/eslint-config/node"
     ]
-  },
-  "dependencies": {
-    "@types/node": "^22.13.13",
-    "tsup": "^8.4.0",
-    "tsx": "^4.19.3"
   },
   "files": [
     "tsup.config.js",
-    "library.json",
     "node.json"
   ],
   "exports": {
     "./tsup.config": "./tsup.config.js",
-    "./node.json": "./node.json",
-    "./library.json": "./library.json"
+    "./node.json": "./node.json"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.13",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3"
   }
 }

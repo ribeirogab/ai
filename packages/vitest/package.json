@@ -5,7 +5,7 @@
   "prettier": "@repo/eslint-config/prettier",
   "eslintConfig": {
     "extends": [
-      "@repo/eslint-config/library"
+      "@repo/eslint-config/node"
     ]
   },
   "devDependencies": {

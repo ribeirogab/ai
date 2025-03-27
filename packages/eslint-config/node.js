@@ -4,7 +4,12 @@ module.exports = {
   plugins: ['simple-import-sort'],
   overrides: [
     {
-      files: ['tsup.config.js', 'vitest.config.js', 'vitest.workspace.js'],
+      files: [
+        'node.js',
+        'tsup.config.js',
+        'vitest.config.js',
+        'vitest.workspace.js',
+      ],
       rules: {
         '@typescript-eslint/no-require-imports': 'off',
       },
