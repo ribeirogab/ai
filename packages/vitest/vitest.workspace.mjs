@@ -1,9 +1,9 @@
-const { defineWorkspace } = require('vitest/config');
+import { defineWorkspace } from 'vitest/config';
 
 /** @type {import('vitest/config').WorkspaceProjectConfiguration[]} */
 const config = [
   {
-    extends: 'vitest.config.js',
+    extends: 'vitest.config.mjs',
     test: {
       include: ['**/*.spec.ts'],
       name: 'unit',
@@ -11,7 +11,7 @@ const config = [
     },
   },
   {
-    extends: 'vitest.config.js',
+    extends: 'vitest.config.mjs',
     test: {
       include: ['**/*.test.ts'],
       name: 'integration',
@@ -20,4 +20,4 @@ const config = [
   },
 ];
 
-module.exports = { defineWorkspace, config };
+export { defineWorkspace, config };

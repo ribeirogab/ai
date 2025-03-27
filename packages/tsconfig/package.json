@@ -8,11 +8,11 @@
     ]
   },
   "files": [
-    "tsup.config.js",
+    "tsup.config.mjs",
     "node.json"
   ],
   "exports": {
-    "./tsup.config": "./tsup.config.js",
+    "./tsup.config": "./tsup.config.mjs",
     "./node.json": "./node.json"
   },
   "devDependencies": {

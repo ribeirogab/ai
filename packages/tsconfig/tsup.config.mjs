@@ -1,4 +1,4 @@
-const { defineConfig } = require('tsup');
+import { defineConfig } from 'tsup';
 
 /** @type {import('tsup').Options | import('tsup').Options[]} */
 const config = {
@@ -16,7 +16,4 @@ const config = {
   ],
 };
 
-module.exports = {
-  defineConfig,
-  config,
-};
+export { defineConfig, config };

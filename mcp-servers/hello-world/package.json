@@ -4,7 +4,7 @@
   "type": "commonjs",
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "vitest": "vitest --globals --config vitest.config.js",
+    "vitest": "vitest --globals --config vitest.config.mjs",
     "test": "npm run vitest -- run",
     "test:unit": "npm run vitest -- --project unit --run",
     "test:integration": "npm run vitest -- --project integration --run",

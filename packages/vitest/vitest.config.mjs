@@ -1,5 +1,5 @@
-const tsconfigPaths = require('vite-tsconfig-paths').default;
-const { configDefaults, defineConfig } = require('vitest/config');
+import tsconfigPaths from 'vite-tsconfig-paths';
+import { configDefaults, defineConfig } from 'vitest/config';
 
 /** @type {import('vitest/config').ViteUserConfig} */
 const config = {
@@ -17,4 +17,4 @@ const config = {
   },
 };
 
-module.exports = { defineConfig, config };
+export { defineConfig, config };

@@ -18,7 +18,7 @@
     "vitest": "^2.0.5"
   },
   "exports": {
-    "./vitest.config": "./vitest.config.js",
-    "./vitest.workspace": "./vitest.workspace.js"
+    "./vitest.config": "./vitest.config.mjs",
+    "./vitest.workspace": "./vitest.workspace.mjs"
   }
 }

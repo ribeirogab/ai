@@ -7,8 +7,8 @@ module.exports = {
       files: [
         'node.js',
         'tsup.config.js',
-        'vitest.config.js',
-        'vitest.workspace.js',
+        'vitest.config.mjs',
+        'vitest.workspace.mjs',
       ],
       rules: {
         '@typescript-eslint/no-require-imports': 'off',
