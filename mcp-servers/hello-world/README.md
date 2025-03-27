@@ -15,19 +15,19 @@ This server includes several example tools:
 
 ## Project Structure
 
-```markdown
+```bash
 hello-world/
-u251cu2500u2500 src/                # Source code
-u2502   u251cu2500u2500 tools/          # Tool implementations
-u2502   u2502   u251cu2500u2500 clock.tool.ts     # Clock tool implementation
-u2502   u2502   u251cu2500u2500 farewell.tool.ts  # Farewell tool implementation
-u2502   u2502   u251cu2500u2500 greet.tool.ts     # Greet tool implementation
-u2502   u2502   u251cu2500u2500 hello-world.tool.ts # Hello World tool implementation
-u2502   u2502   u2514u2500u2500 index.ts          # Tool exports
-u2502   u251cu2500u2500 container.ts     # Tool registration and dependency injection
-u2502   u2514u2500u2500 index.ts         # Server entry point
-u251cu2500u2500 vitest.config.mjs  # Test configuration
-u2514u2500u2500 vitest.workspace.mjs # Test workspace configuration
+├── src/                # Source code
+│   ├── tools/          # Tool implementations
+│   │   ├── clock.tool.ts     # Clock tool implementation
+│   │   ├── farewell.tool.ts  # Farewell tool implementation
+│   │   ├── greet.tool.ts     # Greet tool implementation
+│   │   ├── hello-world.tool.ts # Hello World tool implementation
+│   │   └── index.ts          # Tool exports
+│   ├── container.ts     # Tool registration and dependency injection
+│   └── index.ts         # Server entry point
+├── vitest.config.mjs  # Test configuration
+└── vitest.workspace.mjs # Test workspace configuration
 ```
 
 ## Getting Started

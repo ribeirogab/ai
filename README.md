@@ -6,7 +6,7 @@ This repository contains a collection of tools, servers, and utilities related t
 
 ## Project Structure
 
-```markdown
+```bash
 ai/
 ├── mcp-servers/       # Model Context Protocol servers
 │   └── hello-world/   # Example MCP server with basic tools

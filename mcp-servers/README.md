@@ -14,15 +14,15 @@ The Model Context Protocol (MCP) is a standardized way for AI models to discover
 
 ## Directory Structure
 
-```markdown
+```bash
 mcp-servers/
-└── hello-world/   # Example server with basic tools
-    ├── src/       # Source code
-    │   ├── tools/ # Tool implementations
-    │   ├── container.ts  # Tool registration
-    │   └── index.ts      # Server entry point
-    ├── vitest.config.mjs       # Test configuration
-    └── vitest.workspace.mjs    # Test workspace configuration
+├── hello-world/       # Example server with basic tools
+│   ├── src/            # Source code
+│   │   ├── tools/      # Tool implementations
+│   │   ├── container.ts # Tool registration
+│   │   └── index.ts     # Server entry point
+│   ├── vitest.config.mjs       # Test configuration
+│   └── vitest.workspace.mjs    # Test workspace configuration
 ```
 
 ## Available Servers

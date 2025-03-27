@@ -6,7 +6,7 @@ The packages directory contains shared libraries, utilities, and configurations 
 
 ## Directory Structure
 
-```markdown
+```bash
 packages/
 ├── definitions/   # Core type definitions and interfaces
 ├── eslint-config/ # Shared ESLint configuration
