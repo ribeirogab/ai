@@ -1,4 +1,4 @@
-# AI - Artificial Intelligence Toolkit
+# AI - Collection of AI Applications and Tools
 
 ## Overview
 
