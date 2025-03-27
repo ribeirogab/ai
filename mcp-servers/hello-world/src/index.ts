@@ -1,4 +1,4 @@
-import { McpServer } from '@repo/lib/mcp';
+import { McpServer } from 'simple-mcp';
 
 import { container } from './container';
 

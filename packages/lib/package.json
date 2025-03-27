@@ -12,13 +12,5 @@
     "@repo/eslint-config": "*",
     "@repo/tsconfig": "*"
   },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.8.0",
-    "@repo/definitions": "*",
-    "fastify": "^5.2.2",
-    "zod-to-json-schema": "^3.24.5"
-  },
-  "exports": {
-    "./mcp": "./src/mcp.ts"
-  }
+  "dependencies": {}
 }

@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "@repo/definitions": "*",
-    "@repo/lib": "*"
+    "@repo/lib": "*",
+    "simple-mcp": "^0.0.1"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",

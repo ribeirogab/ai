@@ -1,4 +1,4 @@
-import type { McpTool } from '@repo/definitions';
+import type { McpTool } from 'simple-mcp';
 
 export class ClockTool implements McpTool {
   public readonly parameters = {};

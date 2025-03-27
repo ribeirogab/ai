@@ -1,4 +1,4 @@
-import type { McpTool } from '@repo/definitions';
+import type { McpTool } from 'simple-mcp';
 import { z } from 'zod';
 
 const PARAMETERS = z.object({
